@@ -42,8 +42,8 @@ The best performing model used Word2vec for vectorization and masking to generat
 
 **Approach 2(PyTorch Embeddings + LSTM):**
 We create our own embeddings using Pytorch and follow the same process as above. The accuracy for all three models is as shown below
-<p align="center"><img align="center" width="800px" src=""></p>
-<p align="center"><img align="center" width="800px" src=""></p>
+<p align="center"><img align="center" width="800px" src="data/PyTorch.png"></p>
+<p align="center"><img align="center" width="800px" src="data/PyTorch Acc + Loss.png"></p>
 
 
 <!-- **Approach 3(With Inception V3):**
