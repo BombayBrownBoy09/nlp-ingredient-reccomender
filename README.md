@@ -37,7 +37,8 @@ We tried 3 approaches here:
 
 **Approach 1(Word2Vec + LSTM):**
 The best performing model used Word2vec for vectorization and masking to generate predictors and targets as ingredients or represenattion vectors in our case. We then fine tune vectors using a Neural net with 4 layers (2 LSTM and 2 Dense Layers)
-<p align="center"><img align="center" width="800px" src=""></p>
+<p align="center"><img align="center" width="800px" src="data/Word2Vec.png"></p>
+<p align="center"><img align="center" width="800px" src="data/Word2Vec Acc + Loss.png"></p>
 
 <!-- **Approach 2(With Resnet-152):**
 For Deep learning approach we used pretrained Convolutional neural networks. The model is trained with Resnet-152 with no LR scheduler, Resnet-152 with OneCycle LR scheduler and Resnet-152 with Adam. The accuracy for all three models is as shown below
