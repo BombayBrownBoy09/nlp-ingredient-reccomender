@@ -40,12 +40,12 @@ The best performing model used Word2vec for vectorization and masking to generat
 <p align="center"><img align="center" width="800px" src="data/Word2Vec.png"></p>
 <p align="center"><img align="center" width="800px" src="data/Word2Vec Acc + Loss.png"></p>
 
-<!-- **Approach 2(With Resnet-152):**
-For Deep learning approach we used pretrained Convolutional neural networks. The model is trained with Resnet-152 with no LR scheduler, Resnet-152 with OneCycle LR scheduler and Resnet-152 with Adam. The accuracy for all three models is as shown below
-<p align="center"><img align="center" width="800px" src="https://github.com/leocorelli/ComputerVisionProject/blob/main/images/resNetNoLR.png"></p>
-<p align="center"><img align="center" width="800px" src="https://github.com/leocorelli/ComputerVisionProject/blob/main/images/resnet1Cycle.png"></p>
-<p align="center"><img align="center" width="800px" src="https://github.com/leocorelli/ComputerVisionProject/blob/main/images/resnetAdam.png"></p>
+**Approach 2(PyTorch Embeddings + LSTM):**
+We create our own embeddings using Pytorch and follow the same process as above. The accuracy for all three models is as shown below
+<p align="center"><img align="center" width="800px" src=""></p>
+<p align="center"><img align="center" width="800px" src=""></p>
 
-**Approach 3(With Inception V3):**
+
+<!-- **Approach 3(With Inception V3):**
 The model is trained with Incpetion V3. The training accuracy with InceptionV3 is 93.57% and test accuracy is 84.59%
 <p align="center"><img align="center" width="800px" src="https://github.com/leocorelli/ComputerVisionProject/blob/main/images/Inceptionv3.png"></p> -->
