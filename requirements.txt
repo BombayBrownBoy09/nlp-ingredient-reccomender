@@ -4,6 +4,7 @@ torchvision
 tqdm
 matplotlib
 numpy
-cv2
+nltk
 tensorflow
 keras
+sklearn
