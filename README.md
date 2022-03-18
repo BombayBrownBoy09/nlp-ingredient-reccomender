@@ -15,7 +15,7 @@ The project data and codes are arranged in the following manner:
 ├── README.md               <- description of the project and how to set up and run it
 ├── requirements.txt        <- requirements file to document dependencies
 ├── Makefile [OPTIONAL]     <- set up and run project from the command line
-├── main.ipynb]             <- contains the main notebook modeled using Word2Vec and LSTM based approach
+├── main.ipynb             <- contains the main notebook modeled using Word2Vec and LSTM based approach
 ├── notebooks               <- contains Pytorch Embeddings + LSTM and Doc2Vec approach
 ├── .gitignore              <- git ignore file
 ```
