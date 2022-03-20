@@ -36,6 +36,7 @@ predictions = pd.DataFrame()
 cs_sim = pw_cosine_results.values[0]
 predictions['ingredients'] = ingredients
 predictions['cs'] = cs_sim
+predictions = predictions[~predictions['ingredients'].isin(input_recipe)]
 
 # print top 10 recommendations
 predictions = predictions.sort_values(by='cs', ascending=False).head(10)
