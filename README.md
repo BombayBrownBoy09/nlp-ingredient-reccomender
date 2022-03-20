@@ -59,8 +59,8 @@ To get recommendations on a recipe, run the following from the home directory:
 python scripts/pytorch_lstm_pred.py
 ```
 
-This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations.
-<p align="center"><img align="center" width="800px" src="data/Pytorch_LSTM_Results.png"></p>
+This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations
+<p align="center"><img align="center" width="800px" src="data/Pytorch_LSTM_results.png"></p>
 
 
 **Approach 3 (Doc2Vec):**
