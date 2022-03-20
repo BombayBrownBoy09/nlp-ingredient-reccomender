@@ -63,10 +63,6 @@ This will prompt a user input in the command line for a recipe (comma-seperated 
 <p align="center"><img align="center" width="800px" src="data/Pytorch_LSTM_Results.png"></p>
 
 
-<!-- **Approach 3(With Inception V3):**
-The model is trained with Incpetion V3. The training accuracy with InceptionV3 is 93.57% and test accuracy is 84.59%
-<p align="center"><img align="center" width="800px" src="https://github.com/leocorelli/ComputerVisionProject/blob/main/images/Inceptionv3.png"></p> -->
-
 **Approach 3 (Doc2Vec):**
 Another approach for ingredient recommendations was using doc2vec for recipe vectorization and returning the most similar ingredients based on cosine similarity. This model allows for any sized recipe to be input and will output ten additional ingredient reccomendations. An example of how the approach works can be seen in the image below:
 
