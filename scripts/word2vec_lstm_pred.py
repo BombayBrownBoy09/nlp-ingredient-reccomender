@@ -39,4 +39,4 @@ input_vector = np.array([input_vector])
 output_vector = model.predict(input_vector)
 pred = word2vec.most_similar(positive=[output_vector.reshape(100,)], topn=10)
 print("Top 10 ingredient suggestions:")
-pred
+print(pred)
