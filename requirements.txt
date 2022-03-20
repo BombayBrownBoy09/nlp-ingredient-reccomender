@@ -1,0 +1,11 @@
+pandas
+torch
+torchvision
+tqdm
+matplotlib
+numpy
+nltk
+tensorflow
+keras
+sklearn
+gensim
