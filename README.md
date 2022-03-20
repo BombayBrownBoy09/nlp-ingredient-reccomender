@@ -36,14 +36,31 @@ https://github.com/schmidtdominik/RecipeNet/raw/master/simplified-recipes-1M.npz
 We tried 3 approaches here:
 
 **Approach 1 (Word2Vec + LSTM):**
-The best performing model used Word2vec for vectorization and masking to generate predictors and targets as ingredients or represenattion vectors in our case. We then fine tune vectors using a Neural net with 4 layers (2 LSTM and 2 Dense Layers)
+The best performing model used Word2vec for vectorization and masking to generate predictors and targets as ingredients or representation vectors in our case. We then fine tune vectors using a Neural net with 4 layers (2 LSTM and 2 Dense Layers). To use, Download the model from above link and place in `models` folder.
 <p align="center"><img align="center" width="800px" src="data/Word2Vec.png"></p>
 <p align="center"><img align="center" width="800px" src="data/Word2Vec Acc + Loss.png"></p>
+To get recommendations on a recipe, run the following from the home directory:
+
+```sh
+python scripts/word2vec_lstm_pred.py
+```
+
+This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations.
+<p align="center"><img align="center" width="800px" src="data/Word2Vec_LSTM_Results.png"></p>
+
 
 **Approach 2 (PyTorch Embeddings + LSTM):**
-We create our own embeddings using Pytorch and follow the same process as above. The accuracy for all three models is as shown below
+We create our own embeddings using Pytorch and follow the same process as above. To use, Download the model from above link and place in `models` folder.
 <p align="center"><img align="center" width="800px" src="data/PyTorch.png"></p>
 <p align="center"><img align="center" width="800px" src="data/PyTorch Acc + Loss.png"></p>
+To get recommendations on a recipe, run the following from the home directory:
+
+```sh
+python scripts/pytorch_lstm_pred.py
+```
+
+This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations.
+<p align="center"><img align="center" width="800px" src="data/Pytorch_LSTM_Results.png"></p>
 
 
 <!-- **Approach 3(With Inception V3):**
