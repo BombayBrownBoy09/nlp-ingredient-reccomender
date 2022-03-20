@@ -25,7 +25,7 @@ the `data` folder is not a part of this git project as it was heavy. The same ca
 1) Download data [here](https://github.com/schmidtdominik/RecipeNet/raw/master/simplified-recipes-1M.npz) 
     - **Training data:** Reference Link above you can set a validation split while training
     -  **Validation data:** you can set a 0.15 validation split while training
-2) Download trained models [here]()
+2) Download trained models [here](https://duke.box.com/s/u448hisvoewt7do5z7qyrsdt9llydte1)
 
 ```sh
 https://github.com/schmidtdominik/RecipeNet/raw/master/simplified-recipes-1M.npz
