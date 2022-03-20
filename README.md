@@ -57,13 +57,16 @@ Another approach for ingredient recommendations was using doc2vec for recipe vec
 
 To build the doc2vec model, run the following in the command line from the home directory:
 
-`python scripts/doc2vec_build.py`
-
+```sh
+python scripts/doc2vec_build.py
+```
 This will output a pickled model under `models/doc2vec_model`. Additionally, will output ingredient document vectors in a csv for ingredient recommendations later under `data/outputs/ingredient_doc2vec.csv`. To skip this step, download from the repo Box linked above and place in `models` folder and the relevant csv to the `data/outputs` directory.
 
 To get recommendations on a recipe, run the following from the home directory:
 
-`python scripts/doc2vec_pred.py`
+```sh
+python scripts/doc2vec_pred.py`
+```
 
 This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. A demo of this can be seen below, where the model recommends additional ingredients to add for a "Zavioli with Spinach and Ricotta" recipe:
 
