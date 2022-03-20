@@ -65,7 +65,7 @@ This will output a pickled model under `models/doc2vec_model`. Additionally, wil
 To get recommendations on a recipe, run the following from the home directory:
 
 ```sh
-python scripts/doc2vec_pred.py`
+python scripts/doc2vec_pred.py
 ```
 
 This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. A demo of this can be seen below, where the model recommends additional ingredients to add for a "Zavioli with Spinach and Ricotta" recipe:
