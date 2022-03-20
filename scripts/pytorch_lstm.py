@@ -1,20 +1,24 @@
 # import packages
 import pandas as pd
 import numpy as np
-from gensim.models import Word2Vec
 import re
+from sklearn.model_selection import train_test_split
 from sklearn.metrics.pairwise import cosine_similarity
 import sklearn
 from sklearn.metrics import pairwise
 from gensim import corpora
 import pickle
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
+torch.manual_seed(1)
 
 # Loading the dataset (i.e. simplified-recipes-1M.npz) and preprocessing to get a list of recipe lists as text
 with np.load('data/simplified-recipes-1M.npz', allow_pickle=True) as data:
   recipes = data['recipes']
   ingredients = data['ingredients']
-with open('models/PytorchNNEncoder', 'rb') as model_file0:
-    NNmodel = pickle.load(model_file0)
 with open('models/PyTorch+LSTM Model', 'rb') as model_file:
     model = pickle.load(model_file)
 
@@ -39,6 +43,57 @@ ngrams = [
 
 vocab = set(vocabulary)
 word_to_ix = {word: i for i, word in enumerate(vocab)}
+
+# making n gram language modeler
+class NGramLanguageModeler(nn.Module):
+
+    def __init__(self, vocab_size, embedding_dim, context_size):
+        super(NGramLanguageModeler, self).__init__()
+        self.embeddings = nn.Embedding(vocab_size, embedding_dim)
+        self.linear1 = nn.Linear(context_size * embedding_dim, 128)
+        self.linear2 = nn.Linear(128, vocab_size)
+
+    def forward(self, inputs):
+        embeds = self.embeddings(inputs).view((1, -1))
+        out = F.relu(self.linear1(embeds))
+        out = self.linear2(out)
+        log_probs = F.log_softmax(out, dim=1)
+        return log_probs
+
+
+losses = []
+loss_function = nn.NLLLoss()
+NNmodel = NGramLanguageModeler(len(vocab), EMBEDDING_DIM, CONTEXT_SIZE)
+optimizer = optim.SGD(NNmodel.parameters(), lr=0.001)
+
+for epoch in range(10):
+    total_loss = 0
+    for context, target in ngrams:
+
+        # Step 1. Prepare the inputs to be passed to the model (i.e, turn the words
+        # into integer indices and wrap them in tensors)
+        context_idxs = torch.tensor([word_to_ix[w] for w in context], dtype=torch.long)
+
+        # Step 2. Recall that torch *accumulates* gradients. Before passing in a
+        # new instance, you need to zero out the gradients from the old
+        # instance
+        NNmodel.zero_grad()
+
+        # Step 3. Run the forward pass, getting log probabilities over next
+        # words
+        log_probs = NNmodel(context_idxs)
+
+        # Step 4. Compute your loss function. (Again, Torch wants the target
+        # word wrapped in a tensor)
+        loss = loss_function(log_probs, torch.tensor([word_to_ix[target]], dtype=torch.long))
+
+        # Step 5. Do the backward pass and update the gradient
+        loss.backward()
+        optimizer.step()
+
+        # Get the Python number from a 1-element Tensor by calling tensor.item()
+        total_loss += loss.item()
+    losses.append(total_loss)
 
 train_len = 3
 text_sequences = []
