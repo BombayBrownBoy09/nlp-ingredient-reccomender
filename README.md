@@ -52,3 +52,19 @@ The model is trained with Incpetion V3. The training accuracy with InceptionV3 i
 
 **Approach 4 (Doc2Vec):**
 Another approach for ingredient recommendations was using doc2vec for recipe vectorization and returning the most similar ingredients based on cosine similarity. This model allows for any sized recipe to be input and will output ten additional ingredient reccomendations. An example of how the approach works can be seen in the image below:
+
+![Screen Shot 2022-03-20 at 12 51 55 PM](https://user-images.githubusercontent.com/31523376/159173432-39181070-9794-4c7d-89fe-d383922e3645.png)
+
+To build the doc2vec model, run the following in the command line from the home directory:
+
+`python scripts/doc2vec_build.py`
+
+This will output a pickled model under `models/doc2vec_model`. Additionally, will output ingredient document vectors in a csv for ingredient recommendations later under `data/outputs/ingredient_doc2vec.csv`. To skip this step, download from the repo Box linked above and place in `models` folder.
+
+To get recommendations on a recipe, run the following from the home directory:
+
+`python scripts/doc2vec_pred.py`
+
+This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. An example of this can be seen below:
+
+
