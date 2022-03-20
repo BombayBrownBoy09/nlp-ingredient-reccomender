@@ -65,6 +65,6 @@ To get recommendations on a recipe, run the following from the home directory:
 
 `python scripts/doc2vec_pred.py`
 
-This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. An example of this can be seen below:
+This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. A demo of this can be seen below:
 
 
