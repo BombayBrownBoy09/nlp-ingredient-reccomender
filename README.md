@@ -67,4 +67,4 @@ To get recommendations on a recipe, run the following from the home directory:
 
 This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. A demo of this can be seen below, where the model recommends additionaly ingredients to add for a "Zavioli with Spinach and Ricotta" recipe:
 
-<img width="391" alt="Screen Shot 2022-03-20 at 4 13 46 PM" src="https://user-images.githubusercontent.com/31523376/159184263-eb3d19c1-7bf0-4945-b653-3af1705bb6d4.png">
+<img width="392" alt="Screen Shot 2022-03-20 at 4 18 41 PM" src="https://user-images.githubusercontent.com/31523376/159184383-085d6588-d6c6-49c2-90f9-010d2d329ec7.png">
