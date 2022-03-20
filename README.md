@@ -33,14 +33,14 @@ https://github.com/schmidtdominik/RecipeNet/raw/master/simplified-recipes-1M.npz
 
 <a name="exp"></a>
 ## 3. Experimentation
-We tried 4 approaches here:
+We tried 3 approaches here:
 
-**Approach 1(Word2Vec + LSTM):**
+**Approach 1 (Word2Vec + LSTM):**
 The best performing model used Word2vec for vectorization and masking to generate predictors and targets as ingredients or represenattion vectors in our case. We then fine tune vectors using a Neural net with 4 layers (2 LSTM and 2 Dense Layers)
 <p align="center"><img align="center" width="800px" src="data/Word2Vec.png"></p>
 <p align="center"><img align="center" width="800px" src="data/Word2Vec Acc + Loss.png"></p>
 
-**Approach 2(PyTorch Embeddings + LSTM):**
+**Approach 2 (PyTorch Embeddings + LSTM):**
 We create our own embeddings using Pytorch and follow the same process as above. The accuracy for all three models is as shown below
 <p align="center"><img align="center" width="800px" src="data/PyTorch.png"></p>
 <p align="center"><img align="center" width="800px" src="data/PyTorch Acc + Loss.png"></p>
@@ -50,21 +50,24 @@ We create our own embeddings using Pytorch and follow the same process as above.
 The model is trained with Incpetion V3. The training accuracy with InceptionV3 is 93.57% and test accuracy is 84.59%
 <p align="center"><img align="center" width="800px" src="https://github.com/leocorelli/ComputerVisionProject/blob/main/images/Inceptionv3.png"></p> -->
 
-**Approach 4 (Doc2Vec):**
+**Approach 3 (Doc2Vec):**
 Another approach for ingredient recommendations was using doc2vec for recipe vectorization and returning the most similar ingredients based on cosine similarity. This model allows for any sized recipe to be input and will output ten additional ingredient reccomendations. An example of how the approach works can be seen in the image below:
 
 ![Screen Shot 2022-03-20 at 12 51 55 PM](https://user-images.githubusercontent.com/31523376/159173432-39181070-9794-4c7d-89fe-d383922e3645.png)
 
 To build the doc2vec model, run the following in the command line from the home directory:
 
-`python scripts/doc2vec_build.py`
-
-This will output a pickled model under `models/doc2vec_model`. Additionally, will output ingredient document vectors in a csv for ingredient recommendations later under `data/outputs/ingredient_doc2vec.csv`. To skip this step, download from the repo Box linked above and place in `models` folder.
+```sh
+python scripts/doc2vec_build.py
+```
+This will output a pickled model under `models/doc2vec_model`. Additionally, will output ingredient document vectors in a csv for ingredient recommendations later under `data/outputs/ingredient_doc2vec.csv`. To skip this step, download from the repo Box linked above and place in `models` folder and the relevant csv to the `data/outputs` directory.
 
 To get recommendations on a recipe, run the following from the home directory:
 
-`python scripts/doc2vec_pred.py`
+```sh
+python scripts/doc2vec_pred.py`
+```
 
-This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. An example of this can be seen below:
+This will prompt a user input in the command line for a recipe (comma-seperated input required) and output the model's top ten ingredient reccomendations. A demo of this can be seen below, where the model recommends additional ingredients to add for a "Zavioli with Spinach and Ricotta" recipe:
 
-
+<img width="392" alt="Screen Shot 2022-03-20 at 4 18 41 PM" src="https://user-images.githubusercontent.com/31523376/159184383-085d6588-d6c6-49c2-90f9-010d2d329ec7.png">
